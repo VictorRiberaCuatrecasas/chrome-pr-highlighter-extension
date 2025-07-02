@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Trigger Filters</title>
+        <link rel="stylesheet" href="popup.css" />
+    </head>
+    <body>
+        <h3>
+            <span style="background-color: #c7dbff; padding: 2px 6px; border-radius: 4px">Trigger</span>
+            <span style="background-color: #ffbdbd; padding: 2px 6px; border-radius: 4px">Filter</span>
+            <span style="background-color: #bbf7d0; padding: 2px 6px; border-radius: 4px">Highlighting</span>
+        </h3>
+
+        <div class="select-wrapper">
+            <select id="az-filter-type">
+                <option value="frontend">Frontend</option>
+                <option value="backend">Backend</option>
+                <option value="both">Frontend & Backend</option>
+                <option value="custom">Custom Extensions</option>
+            </select>
+        </div>
+
+        <input type="text" id="custom-extensions" placeholder=".js, .vue, .cs" />
+
+        <button id="az-apply-filters">Apply Filters</button>
+        <button id="az-stop-filters" disabled>Stop Filtering</button>
+
+        <div id="filter-status" class="status-inactive">Filtering is inactive</div>
+
+        <button id="inspire-btn">Give Me Inspiration</button>
+        <div id="quote-display"></div>
+
+        <button id="info-btn">Show Info</button>
+
+        <div id="info-section">
+            <i>*Highlights files based on allowed extensions and exclusions in our SaaS branch policies</i>
+            <br />
+            <br />
+            <div class="info-item">
+                <div class="info-title">🎨 Filter Colors</div>
+                <ul>
+                    <li>
+                        <b>Frontend:</b>
+                        <span style="color: #ef4444">Red</span>
+                        label on
+                        <span style="background-color: #ffecec">light red</span>
+                        background
+                    </li>
+                    <li>
+                        <b>Backend:</b>
+                        <span style="color: #6366f1">Blue</span>
+                        label on
+                        <span style="background-color: #ebf5ff">light blue</span>
+                        background
+                    </li>
+                    <li>
+                        <b>Custom:</b>
+                        <span style="color: #22c55e">Green</span>
+                        label on
+                        <span style="background-color: #f0fdf4">light green</span>
+                        background
+                    </li>
+                </ul>
+            </div>
+
+            <div class="info-item">
+                <div class="info-title">📂 Filter Behavior</div>
+                <ul>
+                    <li>
+                        <b>Frontend:</b>
+                        Matches extensions:
+                        <code>.vue, .css, .js, .ts, .scss</code>
+                    </li>
+                    <li>
+                        <b>Backend:</b>
+                        Matches extensions:
+                        <code>.cs, .csproj, .bicep, .yml</code>
+                    </li>
+                    <li>
+                        <b>Both:</b>
+                        Applies frontend + backend rules
+                    </li>
+                    <li>
+                        <b>Custom:</b>
+                        Enter extensions separated by commas (e.g.
+                        <code>.js, .vue, .cs</code>
+                        )
+                    </li>
+                </ul>
+            </div>
+
+            <div class="info-item">
+                <div class="info-title">🔄 Persistent Filtering</div>
+                <ul>
+                    <li>
+                        When filtering is active, a listener is added that works within the
+                        <b>dev.azure.com</b>
+                        environment.
+                    </li>
+                    <li>This ensures that filters remain active as you navigate between pull requests, commits, and other sections.</li>
+                    <li>
+                        To stop filtering and remove the listener, use the
+                        <b>Stop Filtering</b>
+                        button.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="info-item">
+                <div class="info-title">⚠️ Limitations</div>
+                <ul>
+                    <li>Highlighting works by using DOM manipulation and expects a very specific DOM structure.</li>
+                    <li>
+                        If the DOM structure changes in future updates to Azure DevOps, or in specific locations where the node structure is not as expected, the filtering may not
+                        work as intended.
+                    </li>
+                </ul>
+            </div>
+
+            <hr />
+
+            <span>
+                Congratulations for reading this far, now
+                <a href="#" id="dont-btn">DON'T CLICK ME</a>
+            </span>
+        </div>
+
+        <script src="popup.js" defer></script>
+    </body>
+</html>

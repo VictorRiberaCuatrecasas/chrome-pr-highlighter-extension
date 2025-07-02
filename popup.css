@@ -1,0 +1,224 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fc;
+    color: #482882;
+    padding: 15px;
+    width: 290px;
+    margin: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body.expanded {
+    width: 340px;
+}
+
+h3 {
+    color: #482882;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 15px;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.select-wrapper {
+    position: relative;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #482882;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    color: #482882;
+    outline: none;
+    padding-right: 30px;
+    box-shadow: 0 2px 5px rgba(72, 40, 130, 0.05);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+select:hover {
+    border-color: #764dc4;
+    box-shadow: 0 0 6px rgba(118, 77, 196, 0.4);
+}
+
+.select-wrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg fill='%23482882' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px 16px;
+}
+
+#custom-extensions {
+    display: none;
+    margin-top: 10px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #482882;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #482882;
+    background-color: rgba(255, 255, 255, 0.85);
+    overflow-x: auto;
+    white-space: nowrap;
+    box-sizing: border-box;
+    transition: box-shadow 0.2s;
+}
+
+#custom-extensions:focus {
+    box-shadow: 0 0 5px rgba(118, 77, 196, 0.3);
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #482882;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    background-color: #764dc4;
+    box-shadow: 0 3px 8px rgba(72, 40, 130, 0.3);
+}
+
+button.disabled {
+    background-color: #c3b8e0 !important;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+#info-btn {
+    background-color: transparent;
+    color: #482882;
+    font-size: 12px;
+    margin-top: 10px;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#dont-btn {
+    color: #b92525;
+    font-size: 12px;
+    text-decoration: underline;
+    cursor: pointer;
+    display: inline;
+    padding-left: 4px;
+}
+
+#info-section {
+    display: none;
+    font-size: 12px;
+    margin-top: 10px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.info-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.info-item {
+    margin-bottom: 8px;
+}
+
+#filter-status {
+    margin-top: 10px;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.status-active {
+    background-color: #22c55e;
+    color: white;
+}
+
+.status-inactive {
+    background-color: #ef4444;
+    color: white;
+}
+
+#inspire-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(270deg, #ff3cac, #fcb045, #3ee577, #2b86c5, #ff3cac);
+    background-size: 800% 800%;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
+    animation: chameleonShift 3s linear infinite, pulseFlash 1.5s ease-in-out infinite;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    transition: transform 0.15s ease-in-out;
+}
+
+#inspire-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes chameleonShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes pulseFlash {
+    0%,
+    100% {
+        box-shadow: 0 0 6px #fcb045, 0 0 10px #3ee577;
+    }
+    50% {
+        box-shadow: 0 0 12px #2b86c5, 0 0 18px #ff3cac;
+    }
+}
+
+#quote-display {
+    display: none;
+    color: #333;
+    font-size: 13px;
+    font-style: italic;
+    margin-top: 12px;
+    padding: 10px;
+    border: 2px dashed #a78bfa;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(4px);
+    box-shadow: inset 0 0 5px rgba(167, 139, 250, 0.3);
+    transition: all 0.3s ease;
+    text-align: center;
+}
